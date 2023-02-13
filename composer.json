@@ -1,0 +1,20 @@
+{
+    "name": "bouquet/formulaire_secu_twig",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LaurentBouquet",
+            "email": "laurent.bouquet@joliciel.fr"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.5",
+        "phpmailer/phpmailer": "^6.7",
+        "monolog/monolog": "^3.3"
+    }
+}

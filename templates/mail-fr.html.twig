@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <style>
+      .blue-banner {
+        background-color: #87CEEB;
+        padding: 20px;
+        text-align: center;
+      }
+      .form-data {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blue-banner">
+      <h1>Réception de données du formulaire de contact</h1>
+    </div>
+    <p>Bonjour,</p>
+    <p>Nous avons reçu les données suivantes depuis le formulaire de contact, à l'adresse {{server}} : </p>
+    <div class="form-data">
+      <p><strong>Nom :</strong> {{ name }}</p>
+      <p><strong>Adresse e-mail :</strong> {{ email }}</p>
+      <p><strong>Site Internet :</strong> {{ website }}</p>
+      <p><strong>Commentaire :</strong> {{ comment }}</p>
+      <p><strong>Sexe :</strong> {{ gender }}</p>
+      <p><strong>Facilité de la navigation :</strong> {{ navigation }}</p>
+      <p><strong>Qualité des informations :</strong> {{ quality }}</p>
+    </div>
+    <p>Nous vous remercions de l'intérêt que vous portez à notre site Internet et nous nous engageons à vous répondre dans les plus brefs délais.</p>
+    <p>Cordialement,</p>
+    <p>{{ mailUsername }}</p>
+  </body>
+</html>           

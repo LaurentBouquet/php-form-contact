@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contact</title>
+		<style>
+			.error {
+				color: red;
+			}
+			.star~label::before {
+				content: '\2605';
+				font-size: 40px;
+				color: grey;
+				margin: 20px;
+			}
+
+			.star:checked~label::before {
+				color: orange;
+			}
+
+			.star {
+				display: none;
+			}
+
+			.rating {
+				display: flex;
+				flex-direction: row-reverse;
+				width: 20px;
+				margin: 20px;
+			}
+			.address {
+				margin-left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>Contact</h2>
+
+		{% if sendMailResult %}
+
+			{{ sendMailResult }}
+
+		{% else %}
+
+			<p>
+				<span class="error">* required field</span>
+			</p>
+			<form method="POST">
+
+				<div class="address">
+
+					Name:
+					<input type="text" name="name" value="{{name}}">
+					<span class="error">*
+						{{nameErr}}</span>
+					<br><br>
+					E-mail:
+					<input type="text" name="email" value="{{email}}">
+					<span class="error">*
+						{{emailErr}}</span>
+					<br><br>
+					Website:
+					<input type="text" name="website" value="{{website}}">
+					<span class="error">{{websiteErr}}</span>
+					<br><br>
+					Comment:
+					<textarea name="comment" rows="5" cols="40">{{comment}}</textarea>
+					<br><br>
+					Gender:
+					<input type="radio" name="gender" {% if gender == "female" %} checked {% endif %} value="female">Female
+					<input type="radio" name="gender" {% if gender == "male" %} checked {% endif %} value="male">Male
+					<input type="radio" name="gender" {% if gender == "other" %} checked {% endif %} value="other">Other
+					<span class="error">*
+						{{genderErr}}</span>
+
+				</div>
+
+				<fieldset class="rating">
+					<legend>Site navigation</legend>
+
+					<input class="star" type="radio" name="navigation" id="navigation5" {% if navigation == 5 %} checked {% endif %} value="5">
+					<label for="navigation5"></label>
+
+					<input class="star" type="radio" name="navigation" id="navigation4" {% if navigation == 4 %} checked {% endif %} value="4">
+					<label for="navigation4"></label>
+
+					<input class="star" type="radio" name="navigation" id="navigation3" {% if navigation == 3 %} checked {% endif %} value="3">
+					<label for="navigation3"></label>
+
+					<input class="star" type="radio" name="navigation" id="navigation2" {% if navigation == 2 %} checked {% endif %} value="2">
+					<label for="navigation2"></label>
+
+					<input class="star" type="radio" name="navigation" id="navigation1" {% if navigation == 1 %} checked {% endif %} value="1">
+					<label for="navigation1"></label>
+
+				</fieldset>
+
+				<fieldset class="rating">
+					<legend>Information quality</legend>
+
+					<input class="star" type="radio" name="quality" id="quality5" {% if quality == 5 %} checked {% endif %} value="5">
+					<label for="quality5"></label>
+
+					<input class="star" type="radio" name="quality" id="quality4" {% if quality == 4 %} checked {% endif %} value="4">
+					<label for="quality4"></label>
+
+					<input class="star" type="radio" name="quality" id="quality3" {% if quality == 3 %} checked {% endif %} value="3">
+					<label for="quality3"></label>
+
+					<input class="star" type="radio" name="quality" id="quality2" {% if quality == 2 %} checked {% endif %} value="2">
+					<label for="quality2"></label>
+
+					<input class="star" type="radio" name="quality" id="quality1" {% if quality == 1 %} checked {% endif %} value="1">
+					<label for="quality1"></label>
+
+				</fieldset>
+
+				<br><br>
+				<input type="submit" name="submit" value="Submit">
+			</form>
+
+		{% endif %}
+
+
+	</body>
+
+</html>
